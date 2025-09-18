@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "Permanent Marker";
+  src: url("/fonts/PermanentMarker-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+.header-title,
+.header-title a {
+  font-family: "Permanent Marker", sans-serif !important;
+}
+
+/* Increase site content width */
+article,
+article.posts,
+article.post {
+  max-width: 1200px !important;
+}
+
+
