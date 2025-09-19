@@ -1,11 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Nandeesh&#39;s Blog</title>
-    <link>https://d4r3-w0lf.github.io/</link>
-    <description>Recent content on Nandeesh&#39;s Blog</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <atom:link href="https://d4r3-w0lf.github.io/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Nandeesh's Blog</title><link>https://d4r3-w0lf.github.io/</link><description>Recent content on Nandeesh's Blog</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://d4r3-w0lf.github.io/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
