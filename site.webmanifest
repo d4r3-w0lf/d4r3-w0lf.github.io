@@ -1,7 +1,7 @@
 {
     "name": "d4r3-w0lf's blog",
     "short_name": "d4r3-w0lf's blog",
-    "start_url": "https://d4r3-w0lf.github.io/",
+    "start_url": "http://localhost:1313/",
     "theme_color": "#434648",
     "background_color": "#131418",
     "display": "standalone",

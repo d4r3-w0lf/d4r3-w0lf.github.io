@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>d4r3-w0lf&#39;s blog</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on d4r3-w0lf&#39;s blog</description>
+    <title>Writeups on d4r3-w0lf&#39;s blog</title>
+    <link>http://localhost:1313/writeups/</link>
+    <description>Recent content in Writeups on d4r3-w0lf&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-gb</language>
-    <lastBuildDate>Mon, 20 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 27 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/writeups/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>QnQSec CTF</title>
       <link>http://localhost:1313/writeups/qnqsec_ctf_2025/</link>
@@ -72,40 +72,6 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;solution-&#34;&gt;Solution :&lt;/h5&gt;
 &lt;p&gt;After looking at the given contracts code, the vulnerability is in the &lt;code&gt;CallMeBack&lt;/code&gt; contract&amp;rsquo;s &lt;code&gt;withdraw&lt;/code&gt; function, which is prone to reentranncy attack. Here&amp;rsquo;s why :&lt;/p&gt;</description>
-      
-    </item>
-    
-    <item>
-      <title>About Me</title>
-      <link>http://localhost:1313/pages/about/</link>
-      <pubDate>Wed, 15 Oct 2025 00:00:00 +0000</pubDate>
-      
-      <guid>http://localhost:1313/pages/about/</guid>
-      
-      <description>&lt;p&gt;I&amp;rsquo;m a security researcher exploring and learning in the Web3 security space.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;ve experience in auditing projects in the categories of &lt;strong&gt;Lending-Borrowing, Vaults, Staking/Restaking, Vesting, Yield Aggregator&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;I’m actively participating in audit contests across various platforms and playing &lt;strong&gt;CTFs (blockchain &amp;amp; crypto) with &lt;a href=&#34;https://x.com/HackerTroupe&#34;&gt;HackerTroupe&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id=&#34;public-audit-contests&#34;&gt;Public Audit Contests&lt;/h2&gt;
-&lt;table&gt;
-  &lt;thead&gt;
-      &lt;tr&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;Projects&lt;/th&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;Project Description&lt;/th&gt;
-          &lt;th style=&#34;text-align: left&#34;&gt;Platform&lt;/th&gt;
-          &lt;th style=&#34;text-align: center&#34;&gt;Result&lt;/th&gt;
-          &lt;th style=&#34;text-align: center&#34;&gt;Report&lt;/th&gt;
-      &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-      &lt;tr&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;&lt;a href=&#34;https://audits.sherlock.xyz/contests/964&#34;&gt;Mellow Flexible Vaults&lt;/a&gt;&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Asset Management&lt;/td&gt;
-          &lt;td style=&#34;text-align: left&#34;&gt;Sherlock&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;#&lt;strong&gt;40&lt;/strong&gt;/451 🥇&lt;/td&gt;
-          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://audits.sherlock.xyz/contests/964/report&#34;&gt;📄&lt;/a&gt;&lt;/td&gt;
-      &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;</description>
       
     </item>
     

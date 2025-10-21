@@ -1,0 +1,6 @@
+document.addEventListener("DOMContentLoaded",function(){const e=document.querySelectorAll(".highlight");e.forEach(function(e){const t=document.createElement("button");t.className="code-copy-btn",t.innerHTML=`
+            <svg viewBox="0 0 24 24">
+                <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+            </svg>
+            <span>Copy</span>
+        `,t.addEventListener("click",function(){const s=e.querySelector("code"),n=s.textContent;navigator.clipboard.writeText(n).then(function(){const e=t.querySelector("span").textContent;t.querySelector("span").textContent="Copied!",t.classList.add("copied"),setTimeout(function(){t.querySelector("span").textContent=e,t.classList.remove("copied")},2e3)}).catch(function(e){console.error("Failed to copy text: ",e);const s=document.createElement("textarea");s.value=n,document.body.appendChild(s),s.select();try{document.execCommand("copy");const e=t.querySelector("span").textContent;t.querySelector("span").textContent="Copied!",t.classList.add("copied"),setTimeout(function(){t.querySelector("span").textContent=e,t.classList.remove("copied")},2e3)}catch(e){console.error("Fallback copy failed: ",e)}document.body.removeChild(s)})}),e.appendChild(t)})})
