@@ -70,7 +70,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;        &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;solved&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;solution-&#34;&gt;Solution :&lt;/h5&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;my-approach-&#34;&gt;My Approach :&lt;/h5&gt;
 &lt;p&gt;After reviewing the given contract code, the vulnerability is located in the &lt;code&gt;CallMeBack&lt;/code&gt; contract&amp;rsquo;s &lt;code&gt;withdraw&lt;/code&gt; function, which is susceptible to a reentrancy attack. Here&amp;rsquo;s why :&lt;/p&gt;</description>
       
     </item>
